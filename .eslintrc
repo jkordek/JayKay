@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-console": "warn",
+    "no-confusing-arrow": "warn",
+    "class-methods-use-this": 0,
+    "global-require": 0
+  },
+  "plugins": [
+    "import",
+    "react"
+  ]
+}
