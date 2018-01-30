@@ -24,13 +24,13 @@ class MenuList extends React.Component {
 
     return (
       <div className="menuList">
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Aktualności" selected={this.isSelected('Aktualności')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Dane o placówkach" selected={this.isSelected('Dane o placówkach')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Dokumenty" selected={this.isSelected('Dokumenty')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Forum" selected={this.isSelected('Forum')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Kalendarz" selected={this.isSelected('Kalendarz')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Finanse" selected={this.isSelected('Finanse')}/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Raporty" selected={this.isSelected('Raporty')}/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Aktualności" selected={this.isSelected('Aktualności')} anchor="News"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Dane o placówkach" selected={this.isSelected('Dane o placówkach')} anchor="FacilityDate"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Dokumenty" selected={this.isSelected('Dokumenty')} anchor="Documents"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Forum" selected={this.isSelected('Forum')} anchor="Forum"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Kalendarz" selected={this.isSelected('Kalendarz')} anchor="Calendar"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Finanse" selected={this.isSelected('Finanse')} anchor="Finance"/>
+        <MenuItem doOnClick={this.onClick.bind(this)} label="Raporty" selected={this.isSelected('Raporty')} anchor="Raports"/>
       </div>
     )
   }

@@ -7,10 +7,10 @@ class MenuItem extends React.Component {
   }
 
   render() {
-    const { label, doOnClick, selected } = this.props;
+    const { label, doOnClick, selected, anchor } = this.props;
 
     return (
-      <button onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})}>
+      <button onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href={'../panels/News/' + label}>
         {label}
       </button>
     )
