@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import SidePanel from '../../menu/SidePanel';
 
 class News extends React.Component {
   constructor(props) {
@@ -23,17 +24,21 @@ class News extends React.Component {
     const { optionSelected } = this.state;
 
     return (
-      <div className="newsPanel">
-        <div className="optionsBar">
-          <button onClick={(event) => doOnClick('Lista aktualności')} className={classnames('newsList', { 'clicked': this.isSelected('Lista aktualności')})}>
-            Lista aktualności
-          </button>
-          <button className={classnames('addNews', { 'clicked': this.isSelected('Dodawanie aktualności')})}>
-            Dodawanie aktualności
-          </button>
-        </div>
-        <div className="newsContent">
+      <div className="container">
+        <SidePanel />
 
+        <div className="newsPanel">
+          <div className="optionsBar">
+            <button onClick={(event) => doOnClick('Lista aktualności')} className={classnames('newsList', { 'clicked': this.isSelected('Lista aktualności')})}>
+              Lista aktualności
+            </button>
+            <button className={classnames('addNews', { 'clicked': this.isSelected('Dodawanie aktualności')})}>
+              Dodawanie aktualności
+            </button>
+          </div>
+          <div className="newsContent">
+
+          </div>
         </div>
       </div>
     )
