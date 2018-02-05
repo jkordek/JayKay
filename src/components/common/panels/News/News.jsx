@@ -22,6 +22,7 @@ class News extends React.Component {
   render() {
 
     const { optionSelected } = this.state;
+    const { doOnClick } = this.props;
 
     return (
       <div className="container">
@@ -29,7 +30,7 @@ class News extends React.Component {
 
         <div className="newsPanel">
           <div className="optionsBar">
-            <button onClick={(event) => doOnClick('Lista aktualności')} className={classnames('newsList', { 'clicked': this.isSelected('Lista aktualności')})}>
+            <button onClick={(event) => doOnClick('Lista aktualności')} className={classnames('newsList', {'clicked': optionSelected})}>
               Lista aktualności
             </button>
             <button className={classnames('addNews', { 'clicked': this.isSelected('Dodawanie aktualności')})}>
