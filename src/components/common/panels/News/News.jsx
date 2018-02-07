@@ -11,9 +11,19 @@ class News extends React.Component {
   }
 
   doOnClick(name) {
-    this.setState({
-      optionSelected: name,
-    });
+
+    window.onload = function() {
+      var newsBtn = document.getElementById({name});
+      newsBtn.onclick = function(){
+        if(newsBtn === 'newsList') {
+          document.getElementById('listOfNews').style.display = 'flex';
+          document.getElementById('addNewNews').style.display = 'none';
+        } else if (newsBtn === 'addNews') {
+          document.getElementById('listOfNews').style.display = 'none';
+          document.getElementById('addNewNews').style.display = 'flex';
+        }
+      };
+    };
   }
 
   isSelected(name) {
@@ -30,15 +40,20 @@ class News extends React.Component {
 
         <div className="newsPanel">
           <div className="optionsBar">
-            <button onClick={(event) => doOnClick('Lista aktualności')} className={classnames('newsList', {'clicked': optionSelected})}>
+            <button id='newsList' className='newsList' onClick={this.doOnClick.bind('newsList')}>
               Lista aktualności
             </button>
-            <button className={classnames('addNews', { 'clicked': this.isSelected('Dodawanie aktualności')})}>
+            <button id='addNews' className='addNews' onClick={this.doOnClick.bind('addNews')}>
               Dodawanie aktualności
             </button>
           </div>
           <div className="newsContent">
-
+            <div id='listOfNews' className='listOfNews'>
+              test
+            </div>
+            <div id='addNewNews' className='addNewNews'>
+              test2
+            </div>
           </div>
         </div>
       </div>

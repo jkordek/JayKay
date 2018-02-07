@@ -1,0 +1,30 @@
+.documentsContainer
+  display: flex
+  width: 100%
+  flex-direction: row
+  align-items: center
+  .documentsMenu
+    width: 10%
+    height: 100%
+    border-right: 1px solid $gray
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    .documentsMenuItem
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 150px
+      height: 40px
+      border-top-right-radius: 5px
+      border-bottom-right-radius: 5px
+      color: $text-white
+      background-color: $brand-color
+      margin-bottom: 20px
+      cursor: pointer
+      &.selected
+        width: 165px
+  .documentsList
+    display: flex
+    font-size: 23px
