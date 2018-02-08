@@ -2,6 +2,7 @@ import App from './components/App';
 import Main from './components/pages/Main';
 import News from './components/common/panels/News/News';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
+import AddFacility from './components/common/panels/FacilityData/AddFacility';
 import Documents from './components/common/panels/Documents/Documents';
 
 const routes = [
@@ -24,10 +25,15 @@ const routes = [
         component: FacilityData,
       },
       {
+        path: '/panels/FacilityData/AddFacility',
+        exact: true,
+        component: AddFacility,
+      },
+      {
         path: '/panels/Documents/Documents',
         exact: true,
         component: Documents,
-      }
+      },
     ],
   }
 ];

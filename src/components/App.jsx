@@ -10,6 +10,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Helmet titleTemplate="%s &bull; PISOP" >
+          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
         </Helmet>
 
         {renderRoutes(route.routes)}

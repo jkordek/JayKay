@@ -1,16 +1,55 @@
+
 .facilityData
   width: 100%
   display: flex
   justify-content: center
   flex-direction: column
   align-items: center
+
   .facilityInfo
     display: flex
-    width: 900px
     flex-direction: row
     justify-content: space-between
+    margin-bottom: 20px
+    .facilityDescription
+      font-size: 24px
+    .facilityMenu
+      .chooseFacility
+        width: 150px
+        height: 35px
+        border-radius: 5px
+        color: $text-white
+        background-color: $brand-color
+      .menuOptions
+        ul
+          li
+            list-style-type: none
   .messageBar
-    width: 900px
     display: flex
     flex-direction: row
     justify-content: space-between
+    align-items: center
+    span
+      font-size: 20px
+      margin-right: 50px
+    textarea
+      display: flex
+      justify-content: center
+      height: 26px
+      border-radius: 5px
+      padding: 3px
+      font-size: 20px
+      margin-right: 50px
+    .selectFacility
+      width: 130px
+      height: 35px
+      background-color: $brand-color
+      color: $text-white
+      border-radius: 5px
+      margin-right: 10px
+    .sendMessage
+      width: 55px
+      height: 35px
+      background-color: $brand-color
+      color: $text-white
+      border-radius: 5px
