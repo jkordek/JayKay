@@ -1,28 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 import SidePanel from '../../menu/SidePanel';
+import OptionsBar from './OptionsBar';
 
 class News extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       optionSelected: ''
-    };
-  }
-
-  doOnClick(name) {
-
-    window.onload = function() {
-      var newsBtn = document.getElementById({name});
-      newsBtn.onclick = function(){
-        if(newsBtn === 'newsList') {
-          document.getElementById('listOfNews').style.display = 'flex';
-          document.getElementById('addNewNews').style.display = 'none';
-        } else if (newsBtn === 'addNews') {
-          document.getElementById('listOfNews').style.display = 'none';
-          document.getElementById('addNewNews').style.display = 'flex';
-        }
-      };
     };
   }
 
@@ -37,24 +22,15 @@ class News extends React.Component {
     return (
       <div className="container">
         <SidePanel />
-
-        <div className="newsPanel">
-          <div className="optionsBar">
-            <button id='newsList' className='newsList' onClick={this.doOnClick.bind('newsList')}>
-              Lista aktualności
-            </button>
-            <button id='addNews' className='addNews' onClick={this.doOnClick.bind('addNews')}>
-              Dodawanie aktualności
-            </button>
-          </div>
-          <div className="newsContent">
-            <div id='listOfNews' className='listOfNews'>
-              test
-            </div>
-            <div id='addNewNews' className='addNewNews'>
-              test2
-            </div>
-          </div>
+        <div className="newsList">
+          <OptionsBar />
+          <ul>
+            <li><a className='newsListItem' href="/panels/News/NewsItem">Testowy news 1</a></li>
+            <li><a className='newsListItem' href="#">Testowy news 3</a></li>
+            <li><a className='newsListItem' href="#">Testowy news 2</a></li>
+            <li><a className='newsListItem' href="#">Testowy news 4</a></li>
+            <li><a className='newsListItem' href="#">Testowy news 5</a></li>
+          </ul>
         </div>
       </div>
     )

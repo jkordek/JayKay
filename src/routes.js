@@ -4,6 +4,7 @@ import News from './components/common/panels/News/News';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
 import AddFacility from './components/common/panels/FacilityData/AddFacility';
 import Documents from './components/common/panels/Documents/Documents';
+import NewsItem from './components/common/panels/News/NewsItem';
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
         path: '/panels/Documents/Documents',
         exact: true,
         component: Documents,
+      },
+      {
+        path: '/panels/News/NewsItem',
+        exact: true,
+        component: NewsItem,
       },
     ],
   }
