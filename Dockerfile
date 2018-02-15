@@ -5,13 +5,11 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /src
 
-RUN npm install -g webpack
-
 COPY package.json .
 RUN yarn install --production --frozen-lockfile
 
 COPY . .
-RUN webpack
+RUN yarn webpack
 
 
 EXPOSE 3000

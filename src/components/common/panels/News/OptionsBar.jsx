@@ -1,12 +1,12 @@
 import React from 'react';
 
-const OptionsBar = () => (
+const OptionsBar = ({ label, anchor }) => (
 
   <div className="newsPanel">
     <div className="optionsBar">
-      <button className="addNewsBtn">
-        Dodawanie aktualności
-      </button>
+      <a className="addNewsBtn" href={anchor}>
+        {label}
+      </a>
     </div>
   </div>
 

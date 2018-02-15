@@ -23,7 +23,7 @@ class News extends React.Component {
       <div className="container">
         <SidePanel />
         <div className="newsList">
-          <OptionsBar />
+          <OptionsBar label="Dodawanie aktualności" anchor="./NewsForm"/>
           <ul>
             <li><a className='newsListItem' href="/panels/News/NewsItem">Testowy news 1</a></li>
             <li><a className='newsListItem' href="#">Testowy news 3</a></li>

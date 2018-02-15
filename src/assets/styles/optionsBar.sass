@@ -1,0 +1,45 @@
+.newsPanel
+  width: 100%
+  margin-right: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  .optionsBar
+    width: 100%
+    height: 50px
+    margin-top: 10px
+    padding-bottom: 10px
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    border-bottom: 1px solid $gray
+    .addNewsBtn
+      padding: 10px
+      color: $text-white
+      background: $brand-color
+      border-radius: 4px
+      margin-right: 50px
+      text-decoration: none
+      &:hover
+        padding-bottom: 8px
+        border-bottom: 2px solid $brand-orange
+        cursor: pointer
+    .addFile
+      width: 0.1px
+      height: 0.1px
+      padding: 10px
+      opacity: 0
+      margin-right: 50px
+      overflow: hidden
+      position: absolute
+      z-index: -1
+    .addFile + label
+      padding: 10px
+      color: $text-white
+      background-color: $brand-color
+      border-radius: 4px
+      margin-right: 50px
+      &:hover
+        padding-bottom: 8px
+        border-bottom: 2px solid $brand-orange
+        cursor: pointer

@@ -2,6 +2,7 @@ import React from 'react';
 import SidePanel from '../../menu/SidePanel';
 import Menu from './Menu';
 
+
 class Documents extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +35,12 @@ class Documents extends React.Component {
             <Menu doOnClick={this.onClick.bind(this)} label="Formalno-Prawne" selected={this.isSelected('Formalno-Prawne')} />
           </div>
           <div className="documentsList">
+            <div className="newsPanel">
+              <div className="optionsBar">
+                <input type="file" className="addFile" />
+                <label htmlFor="file">Dodaj Plik</label>
+              </div>
+            </div>
             <ul>
               <li>test</li>
               <li>test</li>

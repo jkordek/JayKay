@@ -12,9 +12,12 @@ class AddFacility extends React.Component {
         <SidePanel />
         <div className="addFacilityContainer">
           <form className="addFacilityForm">
-            <input type="text" className="facilityAddress" placeholder="Miasto"/>
-            <input type="text" className="facilityAddress" placeholder="Ulica"/>
-            <input type="text" className="facilityAddress" placeholder="Numer budynku/miszkania"/>
+            <span>Miasto: </span>
+            <input type="text" className="facilityAddress"/>
+            <span>Adres placówki: </span>
+            <input type="text" className="facilityAddress"/>
+            <span>Kod pocztowy</span>
+            <input type="text" className="facilityAddress"/>
             <button type="submit" className="sendFacilityForm">Wyślij</button>
           </form>
         </div>

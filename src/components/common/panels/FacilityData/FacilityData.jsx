@@ -20,10 +20,6 @@ class FacilityData extends React.Component {
             <strong>Adres placówki:</strong> ul. Woźna 2/10, Lubasz 64-720
             </span>
             <div className="facilityMenu">
-              <a href="/panels/FacilityData/AddFacility"><button className="chooseFacility">
-                Dodaj placówkę
-              </button>
-              </a>
               <button className="chooseFacility">
                 Wybierz placówkę
               </button>
