@@ -9,11 +9,19 @@ class MenuItem extends React.Component {
   render() {
     const { label, doOnClick, selected, anchor } = this.props;
 
-    return (
-      <a onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href={'/panels/' + anchor + '/' + anchor}>
+    if(anchor != 'Forum') {
+      return (
+        <a onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href={'/panels/' + anchor + '/' + anchor}>
+          {label}
+        </a>
+      )
+    } else {
+      return (
+      <a onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href='http://forum.jaykay-feliks.pl'>
         {label}
       </a>
-    )
+      )
+    }
   }
 }
 

@@ -7,6 +7,7 @@ class MenuList extends React.Component {
     this.state = {
       selected: ''
     };
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick(name) {
@@ -24,13 +25,13 @@ class MenuList extends React.Component {
 
     return (
       <div className="menuList">
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Aktualności" selected={this.isSelected('Aktualności')} anchor="News"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Dane o placówkach" selected={this.isSelected('Dane o placówkach')} anchor="FacilityData"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Dokumenty" selected={this.isSelected('Dokumenty')} anchor="Documents"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Forum" selected={this.isSelected('Forum')} anchor="News"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Kalendarz" selected={this.isSelected('Kalendarz')} anchor="News"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Finanse" selected={this.isSelected('Finanse')} anchor="News"/>
-        <MenuItem doOnClick={this.onClick.bind(this)} label="Raporty" selected={this.isSelected('Raporty')} anchor="News"/>
+        <MenuItem doOnClick={this.onClick} label="Aktualności" selected={this.isSelected('Aktualności')} anchor="News"/>
+        <MenuItem doOnClick={this.onClick} label="Dane o placówkach" selected={this.isSelected('Dane o placówkach')} anchor="FacilityData"/>
+        <MenuItem doOnClick={this.onClick} label="Dokumenty" selected={this.isSelected('Dokumenty')} anchor="Documents"/>
+        <MenuItem doOnClick={this.onClick} label="Forum" selected={this.isSelected('Forum')} anchor="Forum"/>
+        <MenuItem doOnClick={this.onClick} label="Kalendarz" selected={this.isSelected('Kalendarz')} anchor="News"/>
+        <MenuItem doOnClick={this.onClick} label="Finanse" selected={this.isSelected('Finanse')} anchor="Finances"/>
+        <MenuItem doOnClick={this.onClick} label="Raporty" selected={this.isSelected('Raporty')} anchor="News"/>
       </div>
     )
   }

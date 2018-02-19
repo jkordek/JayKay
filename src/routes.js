@@ -6,6 +6,7 @@ import AddFacility from './components/common/panels/FacilityData/AddFacility';
 import Documents from './components/common/panels/Documents/Documents';
 import NewsItem from './components/common/panels/News/NewsItem';
 import NewsForm from './components/common/panels/News/NewsForm';
+import Finances from './components/common/panels/Finances/Finances';
 
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
         path: '/panels/News/NewsItem',
         exact: true,
         component: NewsItem,
+      },
+      {
+        path: '/panels/Finances/Finances',
+        exact: true,
+        component: Finances,
       },
     ],
   }
