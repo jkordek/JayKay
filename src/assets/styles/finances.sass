@@ -4,14 +4,16 @@
   justify-content: center
   align-items: center
   flex-direction: column
-  div
-    width: 50%
+  .monthlyRaportContainer
+    width: 60%
     display: flex
-    justify-content: flex-start
-    flex-direction: column
+    justify-content: center
+    flex-direction: row
     span
       font-size: 30px
     .raportOptions
+      display: flex
+      flex-direction: row
       font-size: 25px
       form
         select
@@ -20,3 +22,17 @@
           color: $text-white
           background-color: $brand-color
           border-left: 3px solid $brand-orange
+          margin-left: 10px
+  .monthlyRaportTable
+    width: 60%
+    display: flex
+    justify-content: center
+    flex-direction: column
+    .monthlyRow
+      width: 100%
+      display: flex
+      flex-direction: row
+      .monthlyCol
+        display: flex
+        justify-content: flex-start
+        width: 25%
