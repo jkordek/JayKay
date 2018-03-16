@@ -7,6 +7,7 @@ import Documents from './components/common/panels/Documents/Documents';
 import NewsItem from './components/common/panels/News/NewsItem';
 import NewsForm from './components/common/panels/News/NewsForm';
 import Finances from './components/common/panels/Finances/Finances';
+import Monthly from './components/common/panels/Finances/plans/Monthly';
 
 const routes = [
   {
@@ -51,6 +52,11 @@ const routes = [
         path: '/panels/Finances/Finances',
         exact: true,
         component: Finances,
+      },
+      {
+        path: '/panels/Finances/plans/Monthly',
+        exact: true,
+        component: Monthly,
       },
     ],
   }

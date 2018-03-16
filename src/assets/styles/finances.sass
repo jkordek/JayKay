@@ -1,3 +1,30 @@
+.financeMenuContainer
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  .row
+    display: flex
+    flex-direction: row
+    .financeMenuBtn
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 200px
+      height: 50px
+      background-color: $brand-color
+      color: #ffffff
+      border-bottom: 5px solid $brand-orange
+      border-radius: 5px
+      margin: 10px
+      cursor: pointer
+      text-decoration: none
+      &:hover
+        opacity: 0.8
+      .financeBtn 
+        text-align: center
+
 .monthlyRaport
   width: 100%
   display: flex
@@ -10,6 +37,8 @@
     justify-content: flex-start
     flex-direction: column
     span
+      display: flex
+      flex-direction: row
       font-size: 30px
     .raportOptions
       font-size: 25px
@@ -20,3 +49,4 @@
           color: $text-white
           background-color: $brand-color
           border-left: 3px solid $brand-orange
+
