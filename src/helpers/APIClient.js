@@ -20,6 +20,16 @@ class APIClient {
   getArticles() {
     return axios.get(`/news`);
   }
+
+  postPlaces(city, manager, salesman, administrator) {
+    return this.axiosInstance.post('/places', {
+      city, manager, salesman, administrator
+    });
+  }
+
+  getPlaces() {
+    return axios.get(`/places`);
+  }
 }
 
 export default new APIClient();

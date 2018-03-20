@@ -23,13 +23,13 @@ class NewsForm extends React.Component {
   handleChangeTitle = event => {
 
     this.setState({
-      title: event.target.value,
+      title: event.target.value
     });
   }
 
   handleChangePlace = event => {
     this.setState({
-      place: event.target.value,
+      place: event.target.value
     });
   }
 
@@ -41,7 +41,7 @@ class NewsForm extends React.Component {
 
   handleChangeContent = event => {
     this.setState({
-      content: event.target.value,
+      content: event.target.value
     });
   }
 
@@ -51,7 +51,7 @@ class NewsForm extends React.Component {
 
     apiClient.postArticle( title, author, place, content )
       .then((response) => {
-        console.log(p);
+        // console.log();
       })
       .catch((err) => {
         console.log(err);
