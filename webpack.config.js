@@ -51,7 +51,7 @@ module.exports = {
       },
     ]),
     new ExtractTextPlugin({
-      filename: '/styles/style.[hash:8].css',
+      filename: 'styles/style.[hash:8].css',
       allChunks: true,
     }),
   ],
