@@ -38,7 +38,6 @@ class Documents extends React.Component {
             <div className="newsPanel">
               <div className="optionsBar">
                 <input type="file" className="addFile" />
-                <label htmlFor="file">Dodaj Plik</label>
               </div>
             </div>
             <ul>
