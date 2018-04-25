@@ -6,9 +6,9 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "start-local": "nodemon -L --watch lib index.js",
+    "start:local": "nodemon -L --watch lib index.js",
     "webpack": "webpack --progress",
-    "webpack-local": "webpack --config webpack.config.dev.js --progress"
+    "webpack:local": "webpack --config webpack.config.dev.js --progress"
   },
   "dependencies": {
     "axios": "^0.17.1",
