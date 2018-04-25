@@ -37,11 +37,8 @@ class APIClient {
   }
 
   /* MESSAGES
-    title   : required : String
-    author  : required : ID
     place   : optional : ID
     user    : optional : ID
-    content : required : String
   */
 
   getMessages(place, user) {
@@ -52,6 +49,14 @@ class APIClient {
   getMessage(id) {
     return this._get(`/messages/${id}`);
   }
+
+  /* MESSAGES
+    title   : required : String
+    author  : required : ID
+    place   : optional : ID
+    user    : optional : ID
+    content : required : String
+  */
 
   createMessage(title, author, place, user, content) {
     const data = {
