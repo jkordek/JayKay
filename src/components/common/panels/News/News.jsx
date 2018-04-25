@@ -14,7 +14,7 @@ class News extends React.Component {
   }
 
   show() {
-    apiClient.getArticles();
+    apiClient.getNews();
   }
 
   isSelected(name) {
