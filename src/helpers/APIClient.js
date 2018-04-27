@@ -13,8 +13,8 @@ class APIClient {
     this.config.auth = { username, password };
   }
 
-  getUsers(author) {
-    const params = { author };
+  getUsers(place) {
+    const params = { place };
     return this._get('/users', { params });
   }
 
@@ -22,13 +22,25 @@ class APIClient {
     return this._get(`/users/${id}`);
   }
 
-  createUser(title, author, content) {
-    const data = { title, author, content };
+  /* USERS
+    email       : String : required
+    password    : String : required
+    phoneNumber : String : required
+    place       : ID : optional
+    rank        : String (user|admin) : required
+  */
+
+  createUser(email, password, phoneNumber, place, rank) {
+    const data = {
+      email, password, phoneNumber, place, rank,
+    };
     return this._post('/users', data);
   }
 
-  updateUser(id, title, author, content) {
-    const data = { title, author, content };
+  updateUser(id, email, password, phoneNumber, place, rank) {
+    const data = {
+      email, password, phoneNumber, place, rank,
+    };
     return this._put(`/users/${id}`, data);
   }
 
