@@ -51,7 +51,7 @@ class NewsForm extends React.Component {
 
     apiClient.postArticle( title, author, place, content )
       .then((response) => {
-        // console.log();
+        console.log("przeszło");
       })
       .catch((err) => {
         console.log(err);

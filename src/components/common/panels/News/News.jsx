@@ -13,10 +13,6 @@ class News extends React.Component {
     };
   }
 
-  show() {
-    apiClient.getNews();
-  }
-
   isSelected(name) {
     return this.state.optionSelected === name ? 'selected' : '';
   }
@@ -31,7 +27,7 @@ class News extends React.Component {
         <div className="newsList">
           <OptionsBar label="Dodawanie aktualności" anchor="./NewsForm"/>
           <ul>
-            {this.show()}
+
           </ul>
         </div>
       </div>

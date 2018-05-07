@@ -1,0 +1,76 @@
+.container
+  display: flex
+  flex-direction: row
+  .users
+    width: 100%
+    display: flex
+    align-items: center
+    flex-direction: column
+
+
+  .addUser
+    width: 100%
+    display: flex
+    align-items: center
+    flex-direction: column
+    .addUserForm
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      .userName
+        width: 80%
+        height: 30%
+        margin: 10px
+        display: flex
+        justify-content: center
+        flex-direction: row
+        div
+          span
+            font-size: 23px
+          .addUserInput
+            width: 200px
+            height: 30px
+            border-radius: 5px
+            margin: 5px
+      .userPlaces
+        width: 80%
+        height: 30%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        span
+          font-size: 23px
+        .addUserInput
+          width: 420px
+          height: 30px
+          border-radius: 5px
+          margin: 5px
+      .addressNumber
+        width: 80%
+        height: 40%
+        margin: 10px
+        display: flex
+        justify-content: center
+        flex-direction: row
+        div
+          margin: 8px
+          span
+            font-size: 23px
+          .addUserInput
+            width: 125px
+            height: 30px
+            border-radius: 5px
+            margin: 5px
+            text-align: right
+      .register
+        width: 200px
+        height: 40px
+        color: $text-white
+        background: $brand-color
+        border-radius: 4px
+        &:hover
+          border-bottom: 2px solid $brand-orange
+          cursor: pointer

@@ -8,6 +8,8 @@ import NewsItem from './components/common/panels/News/NewsItem';
 import NewsForm from './components/common/panels/News/NewsForm';
 import Finances from './components/common/panels/Finances/Finances';
 import Monthly from './components/common/panels/Finances/plans/Monthly';
+import Users from './components/common/panels/Users/Users';
+import AddUser from './components/common/panels/Users/AddUser';
 
 const routes = [
   {
@@ -58,6 +60,16 @@ const routes = [
         exact: true,
         component: Monthly,
       },
+      {
+        path: '/panels/Users/Users',
+        exact: true,
+        component: Users,
+      },
+      {
+        path: '/panels/Users/AddUser',
+        exact: true,
+        component: AddUser,
+      }
     ],
   }
 ];
