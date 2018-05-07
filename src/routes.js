@@ -1,5 +1,6 @@
 import App from './components/App';
 import Main from './components/pages/Main';
+import Auth from './components/pages/Auth';
 import News from './components/common/panels/News/News';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
 import AddFacility from './components/common/panels/FacilityData/AddFacility';
@@ -18,7 +19,7 @@ const routes = [
       {
         path: '/',
         exact: true,
-        component: Main,
+        component: Auth,
       },
       {
         path: '/panels/News/News',
