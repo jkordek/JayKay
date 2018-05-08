@@ -10,35 +10,26 @@ class AddUser extends Component {
       email: '',
       password: '',
       phoneNumber: '',
-      rank: ''
+      rank: 'admin'
     };
 
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-  }
-
-  handleChangeEmail = event => {
-    this.setState({
-      email: event.target.value
-    })
-  }
-
-  handleChangePassword = event => {
-    this.setState({
-      password: event.target.value
-    })
   }
 
   submit = event => {
-    const { email } = this.state;
+    event.preventDefault();
+    const { email, password } = this.state;
+    console.log(this.state);
 
     apiClient.createUser(email, password, phoneNumber, place, rank)
-      .then((response) => {
-        console.log('test');
+      .then((result) => {
+        console.log('przeszlo');
       })
-      .catch((err) => {
-        console.log(err);
-      })
-    event.preventDefault();
+      .catch((e) => {
+      });
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -52,17 +43,17 @@ class AddUser extends Component {
             <div className="userName">
               <div>
                 <span>Login(Email)</span><br/>
-                <input type="text" className="addUserInput" value={this.state.email} onChange={this.handleChangeEmail}/>
+                <input type="text" name="email" className="addUserInput" value={this.state.email} onChange={this.onChange}/>
               </div>
               <div>
                 <span>Hasło</span><br/>
-                <input type="password" className="addUserInput"/>
+                <input type="password" name="password" className="addUserInput" value={this.state.password} onChange={this.onChange}/>
               </div>
             </div>
             <div className="userPlaces">
               <div>
                 <span>Nr. tel.</span><br/>
-                <input type="text" className="addUserInput"/>
+                <input type="text" name="phoneNumber" className="addUserInput" value={this.state.phoneNumber} onChange={this.onChange}/>
               </div>
             </div>
             <div className="userPlaces">
@@ -89,7 +80,9 @@ class AddUser extends Component {
                 <input type="number" className="addUserInput"/>
               </div>
             </div>
-            <button className="register" type="submit">Zarejestruj</button>
+            <button className="register" onClick={this.submit}>
+              Zarejestruj
+            </button>
           </div>
         </div>
       </div>
