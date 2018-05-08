@@ -15,11 +15,11 @@ class APIClient {
 
   getUsers(place) {
     const params = { place };
-    return this._get('/users', { params });
+    return this._get('users', { params });
   }
 
   getUser(id) {
-    return this._get(`/users/${id}`);
+    return this._get(`users/${id}`);
   }
 
   /* USERS
@@ -34,18 +34,18 @@ class APIClient {
     const data = {
       email, password, phoneNumber, place, rank,
     };
-    return this._post('/users', data);
+    return this._post('users', data);
   }
 
   updateUser(id, email, password, phoneNumber, place, rank) {
     const data = {
       email, password, phoneNumber, place, rank,
     };
-    return this._put(`/users/${id}`, data);
+    return this._put(`users/${id}`, data);
   }
 
   deleteUser(id) {
-    return this._delete(`/users/${id}`);
+    return this._delete(`users/${id}`);
   }
 
   /* MESSAGES
@@ -55,11 +55,11 @@ class APIClient {
 
   getMessages(place, user) {
     const params = { place, user };
-    return this._get('/messages', { params });
+    return this._get('messages', { params });
   }
 
   getMessage(id) {
-    return this._get(`/messages/${id}`);
+    return this._get(`messages/${id}`);
   }
 
   /* MESSAGES
@@ -74,18 +74,18 @@ class APIClient {
     const data = {
       title, author, place, user, content,
     };
-    return this._post('/messages', data);
+    return this._post('messages', data);
   }
 
   updateMessage(id, title, author, place, user, content) {
     const data = {
       title, author, place, user, content,
     };
-    return this._put(`/messages/${id}`, data);
+    return this._put(`messages/${id}`, data);
   }
 
   deleteMessage(id) {
-    return this._delete(`/messages/${id}`);
+    return this._delete(`messages/${id}`);
   }
 
   /* NEWS
@@ -94,11 +94,11 @@ class APIClient {
 
   getNews(author) {
     const params = { author };
-    return this._get('/news', { params });
+    return this._get('news', { params });
   }
 
   getOneNews(id) {
-    return this._get(`/news/${id}`);
+    return this._get(`news/${id}`);
   }
 
   /* NEWS
@@ -109,16 +109,16 @@ class APIClient {
 
   createNews(title, author, content) {
     const data = { title, author, content };
-    return this._post('/news', data);
+    return this._post('news', data);
   }
 
   updateNews(id, title, author, content) {
     const data = { title, author, content };
-    return this._put(`/news/${id}`, data);
+    return this._put(`news/${id}`, data);
   }
 
   deleteNews(id) {
-    return this._delete(`/news/${id}`);
+    return this._delete(`news/${id}`);
   }
 
 
@@ -131,11 +131,11 @@ class APIClient {
     const params = {
       manager, salesman, administrator,
     };
-    return this._get('/places', { params });
+    return this._get('places', { params });
   }
 
   getPlace(id) {
-    return this._get(`/places/${id}`);
+    return this._get(`places/${id}`);
   }
 
   /* PLACES
@@ -154,7 +154,7 @@ class APIClient {
       name, street, buildingNumber, postCode, city, manager, salesman, administrator,
     };
 
-    return this._post('/places', data);
+    return this._post('places', data);
   }
 
   updatePlace(id, name, street, buildingNumber, postCode, city, manager, salesman, administrator) {
@@ -162,11 +162,11 @@ class APIClient {
       name, street, buildingNumber, postCode, city, manager, salesman, administrator,
     };
 
-    return this._put(`/places/${id}`, data);
+    return this._put(`places/${id}`, data);
   }
 
   deletePlace(id) {
-    return this._delete(`/places/${id}`);
+    return this._delete(`places/${id}`);
   }
 
   _request(method, path, config) {
@@ -176,31 +176,29 @@ class APIClient {
     finalConfig.url = path;
     finalConfig.method = method;
 
-    return this.axiosInstance.request(finalConfig)
-      .then(this._handleResponse(finalConfig))
-      .catch(this._handleError.bind(this));
+    return this.axiosInstance.request(finalConfig);
   }
 
   _get(path, config = {}) {
-    return this._request('get', `${this.apiUrl}/${path}`, config);
+    return this._request('get', path, config);
   }
 
   _post(path, data, config = {}) {
     const localConfig = config;
     localConfig.data = data;
 
-    return this._request('post', `${this.apiUrl}/${path}`, localConfig);
+    return this._request('post', path, localConfig);
   }
 
   _put(path, data, config = {}) {
     const localConfig = config;
     localConfig.data = data;
 
-    return this._request('put', `${this.apiUrl}/${path}`, localConfig);
+    return this._request('put', path, localConfig);
   }
 
   _delete(path) {
-    return this._request('delete', `${this.apiUrl}/${path}`);
+    return this._request('delete', path);
   }
 }
 
