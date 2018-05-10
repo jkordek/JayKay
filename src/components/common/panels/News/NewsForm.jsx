@@ -17,9 +17,10 @@ class NewsForm extends React.Component {
   }
 
   componentWillMount() {
-    if (!apiClient.isUserLoggedIn()) {
-      this.props.history.push({ pathname: '/' });
-    }
+    apiClient.isUserLoggedIn()
+      .catch((e) => {
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   onChange(e) {

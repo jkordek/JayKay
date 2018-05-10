@@ -16,6 +16,16 @@ class Auth extends React.Component {
     this.login = this.login.bind(this);
   }
 
+  componentWillMount() {
+    apiClient.isUserLoggedIn()
+      .then((res) => {
+        this.props.history.push({ pathname: '/panels/News/News' });
+      })
+      .catch((e) => {
+        //do sth
+      });
+  }
+
   login(e) {
     e.preventDefault();
     const { username, password } = this.state;
@@ -27,7 +37,7 @@ class Auth extends React.Component {
         this.props.history.push({ pathname: '/panels/News/News' });
       })
       .catch((e) => {
-        // show some error
+        console.log(e);
       });
   }
 

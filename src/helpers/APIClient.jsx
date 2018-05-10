@@ -1,22 +1,35 @@
 import _ from 'lodash';
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 class APIClient {
   constructor() {
     this.axiosInstance = axios.create({
       baseURL: 'http://localhost:3000',
     });
-    this.config = {};
-    this.areUserCredentialsCorrect = false;
+    const auth = cookie.load('u');
+    this.config = {
+      headers: {
+        Authorization: auth,
+      },
+    };
   }
 
   // USE THIS ONCE WHILE SETTING CREDS FOR USER
   setUserCredentials(username, password) {
-    this.config.auth = { username, password };
+    const auth = `Basic ${window.btoa(`${username}:${password}`)}`;
+    this.config.headers = {
+      Authorization: auth,
+    };
   }
 
   isUserLoggedIn() {
-    return this.areUserCredentialsCorrect;
+    if (!this.config.headers.Authorization) return Promise.reject();
+    return this.getMe()
+      .then(() => true)
+      .catch(() => {
+        cookie.remove('u');
+      });
   }
 
   getUsers(place) {
@@ -188,7 +201,7 @@ class APIClient {
 
     return this.axiosInstance.request(finalConfig)
       .then((data) => {
-        this.areUserCredentialsCorrect = true;
+        cookie.save('u', finalConfig.headers.Authorization, { path: '/' });
         return data;
       })
       .catch((err) => {
