@@ -188,7 +188,7 @@ class APIClient {
         return data;
       })
       .catch((err) => {
-        this.areUserCredentialsCorrect = false;
+        if (err.response.status === 401) this.areUserCredentialsCorrect = false; // logout user
         throw err;
       });
   }
