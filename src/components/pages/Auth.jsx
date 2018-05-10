@@ -10,12 +10,14 @@ class Auth extends React.Component {
     this.state = {
       username: '',
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.login = this.login.bind(this);
   }
 
   login(e) {
     e.preventDefault();
     const { username, password } = this.state;
-    console.log(this.state);
 
     apiClient.setUserCredentials(username, password);
     apiClient.getNews()
