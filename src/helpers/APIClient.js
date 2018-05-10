@@ -28,6 +28,10 @@ class APIClient {
     return this._get(`users/${id}`);
   }
 
+  getMe() {
+    return this._get('users/me');
+  }
+
   /* USERS
     email       : String : required
     password    : String : required
