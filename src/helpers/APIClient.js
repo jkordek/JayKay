@@ -28,6 +28,10 @@ class APIClient {
     return this._get(`users/${id}`);
   }
 
+  getMe() {
+    return this._get('users/me');
+  }
+
   /* USERS
     email       : String : required
     password    : String : required
@@ -188,7 +192,7 @@ class APIClient {
         return data;
       })
       .catch((err) => {
-        this.areUserCredentialsCorrect = false;
+        if (err.response.status === 401) this.areUserCredentialsCorrect = false; // logout user
         throw err;
       });
   }
