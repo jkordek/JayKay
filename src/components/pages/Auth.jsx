@@ -9,6 +9,7 @@ class Auth extends React.Component {
 
     this.state = {
       username: '',
+      password: '',
     };
 
     this.onChange = this.onChange.bind(this);
