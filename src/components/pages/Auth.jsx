@@ -24,7 +24,7 @@ class Auth extends React.Component {
     apiClient.getMe()
       .then((result) => {
         const user = result.data;
-        this.props.history.push({ pathname: '/invite' });
+        this.props.history.push({ pathname: '/panels/News/News' });
       })
       .catch((e) => {
         // show some error

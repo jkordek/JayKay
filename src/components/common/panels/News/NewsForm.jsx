@@ -10,46 +10,27 @@ class NewsForm extends React.Component {
       title: '',
       author: '',
       content: '',
-      place: '',
     }
 
-    this.handleChangeTitle = this.handleChangeTitle.bind(this);
-    this.handleChangePlace = this.handleChangePlace.bind(this);
-    this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
-    this.handleChangeContent = this.handleChangeContent.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.submit = this.submit.bind(this);
   }
 
-  handleChangeTitle = event => {
-
-    this.setState({
-      title: event.target.value
-    });
+  componentWillMount() {
+    if (!apiClient.isUserLoggedIn()) {
+      this.props.history.push({ pathname: '/' });
+    }
   }
 
-  handleChangePlace = event => {
-    this.setState({
-      place: event.target.value
-    });
-  }
-
-  handleChangeAuthor = event => {
-    this.setState({
-      author: event.target.value
-    });
-  }
-
-  handleChangeContent = event => {
-    this.setState({
-      content: event.target.value
-    });
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   submit = event => {
 
     const { title, author, place, content } = this.state;
 
-    apiClient.postArticle( title, author, place, content )
+    apiClient.createNews( title, author, content )
       .then((response) => {
         console.log("przeszło");
       })
@@ -69,20 +50,15 @@ class NewsForm extends React.Component {
           <OptionsBar label="Powrót" anchor="./News"/>
           <form onSubmit={this.submit}>
             <div className="newsForm">
-              <select name="places" value={this.state.place} onChange={this.handleChangePlace}>
-                <option id="1" value="Luboń">Luboń</option>
-                <option id="2" value="Komorniki">Komorniki</option>
-                <option id="3" value="Lubasz">Lubasz</option>
-              </select>
               <select name="author" value={this.state.author} onChange={this.handleChangeAuthor}>
                 <option id="1" value="Jacob">Jacob</option>
                 <option id="2" value="Peter">Peter</option>
                 <option id="3" value="Kasper">Kasper</option>
               </select>
               <span>Tytuł artykułu:</span>
-              <input type="text" className="title" name="title" value={this.state.title} onChange={this.handleChangeTitle} />
+              <input type="text" className="title" name="title" value={this.state.title} onChange={this.onChange} />
               <span>Treść artykułu</span>
-              <textarea className="articleContent" name="content" value={this.state.content} onChange={this.handleChangeContent} />
+              <textarea className="articleContent" name="content" value={this.state.content} onChange={this.onChange} />
             </div>
             <button className="addArticle" type="submit">Dodaj aktualność</button>
           </form>
