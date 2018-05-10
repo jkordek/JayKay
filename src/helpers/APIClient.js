@@ -7,10 +7,16 @@ class APIClient {
       baseURL: 'http://localhost:3000',
     });
     this.config = {};
+    this.areUserCredentialsCorrect = false;
   }
 
+  // USE THIS ONCE WHILE SETTING CREDS FOR USER
   setUserCredentials(username, password) {
     this.config.auth = { username, password };
+  }
+
+  isUserLoggedIn() {
+    return this.areUserCredentialsCorrect;
   }
 
   getUsers(place) {
@@ -176,7 +182,15 @@ class APIClient {
     finalConfig.url = path;
     finalConfig.method = method;
 
-    return this.axiosInstance.request(finalConfig);
+    return this.axiosInstance.request(finalConfig)
+      .then((data) => {
+        this.areUserCredentialsCorrect = true;
+        return data;
+      })
+      .catch((err) => {
+        this.areUserCredentialsCorrect = false;
+        throw err;
+      });
   }
 
   _get(path, config = {}) {
