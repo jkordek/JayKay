@@ -7,29 +7,28 @@ class NewsItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    }
+      news: this.props.location.state.news || {},
+    };
   }
 
   componentWillMount() {
-    console.log(this.state.news.title)
-    apiClient.getOneNews(id)
-      .then(() => {
-      })
+    apiClient.isUserLoggedIn()
       .catch((e) => {
-        console.log('error');
-      })
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   render() {
+    const { news } = this.state;
     return (
       <div className="container">
         <SidePanel />
         <div className="articleContainer">
           <div className="newsArticle">
-            <span className="newsTitle">Tytuł</span>
-            <span className="author">Autor: Administrator</span>
+            <span className="newsTitle">{news.title}</span>
+            <span className="author">Autor: {news.author}</span>
             <p className="newsText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {news.content}
             </p>
           </div>
           <div className="downBar">

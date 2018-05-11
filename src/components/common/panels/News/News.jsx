@@ -15,24 +15,30 @@ class News extends React.Component {
   }
 
   componentWillMount() {
-    apiClient.getNews()
-      .then((result) => {
-        this.setState({
-          news: result.data,
-        });
+    apiClient.isUserLoggedIn()
+      .then(() => {
+        apiClient.getNews()
+          .then((result) => {
+            this.setState({
+              news: result.data,
+            });
+          })
+          .catch((e) => {
+            // show some error
+          })
       })
       .catch((e) => {
-        // show some error
-      })
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   isSelected(name) {
     return this.state.optionSelected === name ? 'selected' : '';
   }
 
-  onClick = (e) => {
-    e.preventDefault();
-    this.props.history.push({ pathname: `/panels/News/NewsItem`, state: {news: e.target.id} });
+  onClick = (news) => {
+    console.log(news);
+    this.props.history.push({ pathname: `/panels/News/NewsItem`, state: { news } });
   }
 
 
@@ -48,7 +54,7 @@ class News extends React.Component {
           <OptionsBar label="Dodawanie aktualności" anchor="./NewsForm"/>
           <ul>
             {this.state.news.map((news) =>
-              <li onClick={this.onClick} data-id={news.id}>{news.title}</li>
+              <li onClick={() => this.onClick(news)} data-id={news.id}>{news.title}</li>
             )}
           </ul>
         </div>
