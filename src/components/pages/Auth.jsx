@@ -16,6 +16,16 @@ class Auth extends React.Component {
     this.login = this.login.bind(this);
   }
 
+  componentWillMount() {
+    apiClient.isUserLoggedIn()
+      .then((res) => {
+        this.props.history.push({ pathname: '/panels/News/News' });
+      })
+      .catch((e) => {
+        //do sth
+      });
+  }
+
   login(e) {
     e.preventDefault();
     const { username, password } = this.state;
@@ -27,7 +37,7 @@ class Auth extends React.Component {
         this.props.history.push({ pathname: '/panels/News/News' });
       })
       .catch((e) => {
-        // show some error
+        console.log(e);
       });
   }
 
@@ -41,10 +51,10 @@ class Auth extends React.Component {
         <Logo />
         <div className="authForm">
           <div className="authFormLeft">
-            <input type="text" name="username" className="title" value={this.state.username} onChange={this.onChange} />
-            <input type="password" name="password" className="title" value={this.state.password} onChange={this.onChange} />
+            <input type="text" name="username" placeholder="email" className="title" value={this.state.username} onChange={this.onChange} />
+            <input type="password" name="password" placeholder="hasło" className="title" value={this.state.password} onChange={this.onChange} />
           </div>
-          <button onClick={this.login}>
+          <button className="signIn" onClick={this.login}>
             Zaloguj
           </button>
         </div>

@@ -1,8 +1,25 @@
 import React from 'react';
 import SidePanel from '../../menu/SidePanel';
 import OptionsBar from './OptionsBar';
+import apiClient from '../../../../helpers/APIClient';
 
 class NewsItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  componentWillMount() {
+    console.log(this.state.news.title)
+    apiClient.getOneNews(id)
+      .then(() => {
+      })
+      .catch((e) => {
+        console.log('error');
+      })
+  }
+
   render() {
     return (
       <div className="container">

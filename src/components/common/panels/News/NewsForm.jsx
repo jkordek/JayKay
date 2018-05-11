@@ -17,13 +17,10 @@ class NewsForm extends React.Component {
   }
 
   componentWillMount() {
-    if (!apiClient.isUserLoggedIn()) {
-      this.props.history.push({ pathname: '/' });
-    }
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    apiClient.isUserLoggedIn()
+      .catch((e) => {
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   submit = event => {
@@ -42,6 +39,10 @@ class NewsForm extends React.Component {
     event.preventDefault();
   }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
     return (
       <div className="container">
@@ -50,7 +51,7 @@ class NewsForm extends React.Component {
           <OptionsBar label="Powrót" anchor="./News"/>
           <form onSubmit={this.submit}>
             <div className="newsForm">
-              <select name="author" value={this.state.author} onChange={this.handleChangeAuthor}>
+              <select name="author" value={this.state.author} onChange={this.onChange}>
                 <option id="1" value="Jacob">Jacob</option>
                 <option id="2" value="Peter">Peter</option>
                 <option id="3" value="Kasper">Kasper</option>

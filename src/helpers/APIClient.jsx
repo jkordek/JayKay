@@ -1,22 +1,35 @@
 import _ from 'lodash';
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 class APIClient {
   constructor() {
     this.axiosInstance = axios.create({
       baseURL: 'http://localhost:3000',
     });
-    this.config = {};
-    this.areUserCredentialsCorrect = false;
+    const auth = cookie.load('u');
+    this.config = {
+      headers: {
+        Authorization: auth,
+      },
+    };
   }
 
   // USE THIS ONCE WHILE SETTING CREDS FOR USER
   setUserCredentials(username, password) {
-    this.config.auth = { username, password };
+    const auth = `Basic ${window.btoa(`${username}:${password}`)}`;
+    this.config.headers = {
+      Authorization: auth,
+    };
   }
 
   isUserLoggedIn() {
-    return this.areUserCredentialsCorrect;
+    if (!this.config.headers.Authorization) return Promise.reject();
+    return this.getMe()
+      .then(() => true)
+      .catch(() => {
+        cookie.remove('u');
+      });
   }
 
   getUsers(place) {
@@ -154,9 +167,9 @@ class APIClient {
     buildingNumber : required : String
     postCode       : required : String length 5
     city           : required : String
-    manager        : optional : Id
-    salesman       : optional : Id
-    administrator  : optional : Id
+    manager        : required : Object name, phoneNumber, email
+    salesman       : required : Object name, phoneNumber, email
+    administrator  : required : Object name, phoneNumber, email
   */
 
   createPlace(name, street, buildingNumber, postCode, city, manager, salesman, administrator) {
@@ -181,14 +194,14 @@ class APIClient {
 
   _request(method, path, config) {
     const finalConfig = _.merge(this.config, config);
-    if (finalConfig.data) finalConfig.data = _.compact(finalConfig.data);
+
     if (finalConfig.params) finalConfig.params = _.compact(finalConfig.params);
     finalConfig.url = path;
     finalConfig.method = method;
-
+    console.log(finalConfig);
     return this.axiosInstance.request(finalConfig)
       .then((data) => {
-        this.areUserCredentialsCorrect = true;
+        cookie.save('u', finalConfig.headers.Authorization, { path: '/' });
         return data;
       })
       .catch((err) => {

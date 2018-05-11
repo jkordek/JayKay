@@ -32,7 +32,7 @@ class News extends React.Component {
 
   onClick = (e) => {
     e.preventDefault();
-    this.props.history.push({ pathname: `/news/${e.target.id}` });
+    this.props.history.push({ pathname: `/panels/News/NewsItem`, state: {news: e.target.id} });
   }
 
 
