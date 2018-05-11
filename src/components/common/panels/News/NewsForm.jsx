@@ -21,13 +21,6 @@ class NewsForm extends React.Component {
       .catch((e) => {
         this.props.history.push({ pathname: '/' });
       });
-<<<<<<< HEAD
-=======
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
->>>>>>> 6ce700ea21874a20c88b8c87cbbd9c068f5540cb
   }
 
   submit = event => {
