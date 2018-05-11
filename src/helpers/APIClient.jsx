@@ -167,9 +167,9 @@ class APIClient {
     buildingNumber : required : String
     postCode       : required : String length 5
     city           : required : String
-    manager        : optional : Id
-    salesman       : optional : Id
-    administrator  : optional : Id
+    manager        : required : Object name, phoneNumber, email
+    salesman       : required : Object name, phoneNumber, email
+    administrator  : required : Object name, phoneNumber, email
   */
 
   createPlace(name, street, buildingNumber, postCode, city, manager, salesman, administrator) {
@@ -194,11 +194,11 @@ class APIClient {
 
   _request(method, path, config) {
     const finalConfig = _.merge(this.config, config);
-    if (finalConfig.data) finalConfig.data = _.compact(finalConfig.data);
+
     if (finalConfig.params) finalConfig.params = _.compact(finalConfig.params);
     finalConfig.url = path;
     finalConfig.method = method;
-
+    console.log(finalConfig);
     return this.axiosInstance.request(finalConfig)
       .then((data) => {
         cookie.save('u', finalConfig.headers.Authorization, { path: '/' });

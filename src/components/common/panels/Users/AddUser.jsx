@@ -10,17 +10,26 @@ class AddUser extends Component {
       email: '',
       password: '',
       phoneNumber: '',
-      rank: 'admin'
+      rank: 'user'
     };
 
+    this.onChange = this.onChange.bind(this);
+
+  }
+
+  componentWillMount() {
+    apiClient.isUserLoggedIn()
+      .catch((e) => {
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   submit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password, phoneNumber, rank } = this.state;
     console.log(this.state);
 
-    apiClient.createUser(email, password, phoneNumber, place, rank)
+    apiClient.createUser(email, password, phoneNumber, undefined, rank)
       .then((result) => {
         console.log('przeszlo');
       })
@@ -28,7 +37,7 @@ class AddUser extends Component {
       });
   }
 
-  onChange = e => {
+  onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -78,6 +87,10 @@ class AddUser extends Component {
               <div>
                 <span>Kod pocztowy</span><br/>
                 <input type="number" className="addUserInput"/>
+              </div>
+              <div>
+                <span>Administrator</span><br/>
+                <input type="checkbox" onChange={this.onChange}/>
               </div>
             </div>
             <button className="register" onClick={this.submit}>

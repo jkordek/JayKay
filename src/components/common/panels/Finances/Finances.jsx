@@ -1,8 +1,23 @@
 import React from 'react';
 import SidePanel from '../../menu/SidePanel';
 import FinanceMenu from './FinanceMenu';
+import apiClient from '../../../../helpers/APIClient';
 
 class Finances extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  componentWillMount() {
+    apiClient.isUserLoggedIn()
+      .catch((e) => {
+        this.props.history.push({ pathname: '/' });
+      });
+  }
+
   render() {
     return (
       <div className="container">
@@ -17,7 +32,7 @@ class Finances extends React.Component {
             <FinanceMenu label="Monitoring poziomu sprzedaży miesięcznej" anchor="MonthlyLevel" />
             <FinanceMenu label="Monitoring poziomu sprzedaży rocznej" anchor="AnnualyLevel" />
             <FinanceMenu label="Analiza progu rentowności" anchor="Analize"/>
-          </div>        
+          </div>
         </div>
       </div>
     )

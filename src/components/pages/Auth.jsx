@@ -51,10 +51,10 @@ class Auth extends React.Component {
         <Logo />
         <div className="authForm">
           <div className="authFormLeft">
-            <input type="text" name="username" className="title" value={this.state.username} onChange={this.onChange} />
-            <input type="password" name="password" className="title" value={this.state.password} onChange={this.onChange} />
+            <input type="text" name="username" placeholder="email" className="title" value={this.state.username} onChange={this.onChange} />
+            <input type="password" name="password" placeholder="hasło" className="title" value={this.state.password} onChange={this.onChange} />
           </div>
-          <button onClick={this.login}>
+          <button className="signIn" onClick={this.login}>
             Zaloguj
           </button>
         </div>

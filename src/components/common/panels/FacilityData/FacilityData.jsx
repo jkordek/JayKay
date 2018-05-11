@@ -1,9 +1,17 @@
 import React from 'react';
 import SidePanel from '../../menu/SidePanel';
+import apiClient from '../../../../helpers/APIClient';
 
 class FacilityData extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    apiClient.isUserLoggedIn()
+      .catch((e) => {
+        this.props.history.push({ pathname: '/' });
+      });
   }
 
   render() {
