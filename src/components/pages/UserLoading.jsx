@@ -1,9 +1,9 @@
-import react, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Logo from '../common/Logo';
 import apiClient from '../../helpers/APIClient';
 
-class UserLoading extends Component {
+class UserLoading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,14 +11,21 @@ class UserLoading extends Component {
   }
 
   componentWillMount() {
-    apiClient.getMe()
-      .then((result) => {
-        const user = result.data;
-        console.log(result);
+    apiClient.isUserLoggedIn()
+      .then(() => {
+        apiClient.getMe()
+          .then((result) => {
+            const user = result.data;
+            console.log(user);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
       })
       .catch((e) => {
-        console.log(e);
+        this.props.history.push({ pathname: '/' });
       });
+    
   }
 
 

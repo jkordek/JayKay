@@ -19,7 +19,7 @@ class Auth extends React.Component {
   componentWillMount() {
     apiClient.isUserLoggedIn()
       .then((res) => {
-        this.props.history.push({ pathname: '/pages/UserLoading' });
+        this.props.history.push({ pathname: '/UserLoading' });
       })
       .catch((e) => {
         //do sth
