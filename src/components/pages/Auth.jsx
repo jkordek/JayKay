@@ -19,7 +19,7 @@ class Auth extends React.Component {
   componentWillMount() {
     apiClient.isUserLoggedIn()
       .then((res) => {
-        this.props.history.push({ pathname: '/panels/News/News' });
+        this.props.history.push({ pathname: '/pages/UserLoading' });
       })
       .catch((e) => {
         //do sth
@@ -34,7 +34,7 @@ class Auth extends React.Component {
     apiClient.getMe()
       .then((result) => {
         const user = result.data;
-        this.props.history.push({ pathname: '/panels/News/News' });
+        this.props.history.push({ pathname: '/pages/UserLoading' });
       })
       .catch((e) => {
         console.log(e);

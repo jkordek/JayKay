@@ -24,7 +24,6 @@ class NewsForm extends React.Component {
   }
 
   submit = event => {
-
     const { title, author, place, content } = this.state;
 
     apiClient.createNews( title, author, content )
@@ -34,8 +33,7 @@ class NewsForm extends React.Component {
       .catch((err) => {
         console.log(err);
       })
-    console.log(place);
-    console.log(author);
+      
     event.preventDefault();
   }
 

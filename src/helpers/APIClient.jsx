@@ -198,7 +198,6 @@ class APIClient {
     if (finalConfig.params) finalConfig.params = _.compact(finalConfig.params);
     finalConfig.url = path;
     finalConfig.method = method;
-    console.log(finalConfig);
     return this.axiosInstance.request(finalConfig)
       .then((data) => {
         cookie.save('u', finalConfig.headers.Authorization, { path: '/' });

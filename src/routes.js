@@ -1,6 +1,7 @@
 import App from './components/App';
 import Main from './components/pages/Main';
 import Auth from './components/pages/Auth';
+import UserLoading from './components/pages/UserLoading';
 import News from './components/common/panels/News/News';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
 import AddFacility from './components/common/panels/FacilityData/AddFacility';
@@ -11,6 +12,7 @@ import Finances from './components/common/panels/Finances/Finances';
 import Monthly from './components/common/panels/Finances/plans/Monthly';
 import Users from './components/common/panels/Users/Users';
 import AddUser from './components/common/panels/Users/AddUser';
+import UserItem from './components/common/panels/Users/UserItem';
 
 const routes = [
   {
@@ -20,6 +22,11 @@ const routes = [
         path: '/',
         exact: true,
         component: Auth,
+      },
+      {
+        path: '/UserLoading',
+        exact: true,
+        component: UserLoading,
       },
       {
         path: '/panels/News/News',
@@ -70,6 +77,11 @@ const routes = [
         path: '/panels/Users/AddUser',
         exact: true,
         component: AddUser,
+      },
+      {
+        path: '/panels/Users/UserItem',
+        exact: true,
+        component: UserItem,
       }
     ],
   }
