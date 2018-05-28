@@ -192,10 +192,48 @@ class APIClient {
     return this._delete(`places/${id}`);
   }
 
-  createMonthly(month, year, place, user, data, type) {
+  /* FINANCES
+    month   : optional : String
+    year    : optional : String
+    place   : optional : ID
+    user    : optional : ID
+    type    : required : String (monthly|annual)
+  */
+
+  getFinances(place, user) {
+    const params = { place, user };
+    return this._get('finances', { params });
+  }
+
+  getFinance(id) {
+    return this._get(`finances/${id}`);
+  }
+
+  /* FINANCES
+    month   : required : String
+    year    : required : String
+    place   : required : ID
+    user    : required : ID
+    data    : required : String
+    type    : required : String (monthly|annual)
+  */
+
+  createFinance(month, year, place, user, financeData, type) {
     const data = {
-      month, year, place, user, data, type,
+      month, year, place, user, data: financeData, type,
     };
+    return this._post('finances', data);
+  }
+
+  updateFinance(id, month, year, place, user, financeData, type) {
+    const data = {
+      month, year, place, user, data: financeData, type,
+    };
+    return this._put(`finances/${id}`, data);
+  }
+
+  deleteFinance(id) {
+    return this._delete(`finances/${id}`);
   }
 
   _request(method, path, config) {
