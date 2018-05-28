@@ -35,7 +35,7 @@ class Users extends Component {
       <div className="container">
         <SidePanel />
         <div className="users">
-          <OptionsBar label="Dodaj użytkownika" anchor="./AddUser"/>
+          <OptionsBar label="Dodaj użytkownika" anchor="/Users/AddUser"/>
           <ul>
             {usersList}
           </ul>

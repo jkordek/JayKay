@@ -36,6 +36,7 @@
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-cookies": "^0.1.0",
+    "react-csv": "^1.0.14",
     "react-dom": "^16.2.0",
     "react-file-input": "^0.2.5",
     "react-helmet": "^5.2.0",

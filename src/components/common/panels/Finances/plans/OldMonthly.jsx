@@ -30,8 +30,8 @@ const Monthly = () => (
             <div className="monthlyCol">Przychód</div>
           </div>
         </div>
-        <a className="addRow" href="/AddService">Dodaj usługę</a>
       </div>
+      <a className="addRow">Dodaj wiersz</a>
     </div>
   </div>
 );

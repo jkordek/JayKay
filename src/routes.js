@@ -2,6 +2,7 @@ import App from './components/App';
 import Main from './components/pages/Main';
 import Auth from './components/pages/Auth';
 import UserLoading from './components/pages/UserLoading';
+import CreateStaff from './components/pages/CreateStaff';
 import News from './components/common/panels/News/News';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
 import AddFacility from './components/common/panels/FacilityData/AddFacility';
@@ -9,6 +10,7 @@ import Documents from './components/common/panels/Documents/Documents';
 import NewsItem from './components/common/panels/News/NewsItem';
 import NewsForm from './components/common/panels/News/NewsForm';
 import Finances from './components/common/panels/Finances/Finances';
+import AddRowMonthly from './components/common/panels/Finances/plans/AddRowMonthly';
 import Monthly from './components/common/panels/Finances/plans/Monthly';
 import Users from './components/common/panels/Users/Users';
 import AddUser from './components/common/panels/Users/AddUser';
@@ -29,52 +31,62 @@ const routes = [
         component: UserLoading,
       },
       {
-        path: '/panels/News/News',
+        path: '/CreateStaff',
+        exact: true,
+        component: CreateStaff,
+      },
+      {
+        path: '/News',
         exact: true,
         component: News,
       },
       {
-        path: '/panels/News/NewsForm',
+        path: '/CreateNews',
         exact: true,
         component: NewsForm,
       },
       {
-        path: '/panels/FacilityData/FacilityData',
+        path: '/FacilityData',
         exact: true,
         component: FacilityData,
       },
       {
-        path: '/panels/FacilityData/AddFacility',
+        path: '/AddFacility',
         exact: true,
         component: AddFacility,
       },
       {
-        path: '/panels/Documents/Documents',
+        path: '/Documents',
         exact: true,
         component: Documents,
       },
       {
-        path: '/panels/News/NewsItem',
+        path: '/News/NewsItem',
         exact: true,
         component: NewsItem,
       },
       {
-        path: '/panels/Finances/Finances',
+        path: '/Finances',
         exact: true,
         component: Finances,
       },
       {
-        path: '/panels/Finances/plans/Monthly',
+        path: '/Monthly',
         exact: true,
         component: Monthly,
       },
       {
-        path: '/panels/Users/Users',
+        path: '/AddService',
+        exact: true,
+        component: AddRowMonthly,
+      },
+      {
+        path: '/Users',
         exact: true,
         component: Users,
       },
       {
-        path: '/panels/Users/AddUser',
+        path: '/Users/AddUser',
         exact: true,
         component: AddUser,
       },

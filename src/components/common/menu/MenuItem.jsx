@@ -11,7 +11,7 @@ class MenuItem extends React.Component {
 
     if(anchor != 'Forum') {
       return (
-        <a onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href={'/panels/' + anchor + '/' + anchor}>
+        <a onClick={(event) => doOnClick(label)} className={classnames('menuItem', {'selected': selected})} href={'/' + anchor}>
           {label}
         </a>
       )

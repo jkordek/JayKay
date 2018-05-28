@@ -38,7 +38,7 @@ class News extends React.Component {
 
   onClick = (news) => {
     console.log(news);
-    this.props.history.push({ pathname: `/panels/News/NewsItem`, state: { news } });
+    this.props.history.push({ pathname: `/News/NewsItem`, state: { news } });
   }
 
 
@@ -51,7 +51,7 @@ class News extends React.Component {
       <div className="container">
         <SidePanel />
         <div className="newsList">
-          <OptionsBar label="Dodawanie aktualności" anchor="./NewsForm"/>
+          <OptionsBar label="Dodawanie aktualności" anchor="./CreateNews"/>
           <ul>
             {this.state.news.map((news) =>
               <li onClick={() => this.onClick(news)} data-id={news.id}>{news.title}</li>

@@ -10,7 +10,8 @@ class AddUser extends Component {
       email: '',
       password: '',
       phoneNumber: '',
-      rank: 'user'
+      rank: 'user',
+      rankStatus: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -27,7 +28,6 @@ class AddUser extends Component {
   submit = event => {
     event.preventDefault();
     const { email, password, phoneNumber, rank } = this.state;
-    console.log(this.state);
 
     apiClient.createUser(email, password, phoneNumber, undefined, rank)
       .then((result) => {
@@ -41,6 +41,11 @@ class AddUser extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  onSelect(e) {
+    if( this.state.rankStatus == true) {
+      this.setState({ rank: 'admin' });
+    }
+  }
   render() {
 
     return (
@@ -90,7 +95,7 @@ class AddUser extends Component {
               </div>
               <div>
                 <span>Administrator</span><br/>
-                <input type="checkbox" onChange={this.onChange}/>
+                <input type="checkbox" checked={this.state.rankStatus} onChange={this.onChange}/>
               </div>
             </div>
             <button className="register" onClick={this.submit}>

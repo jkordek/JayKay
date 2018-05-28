@@ -16,7 +16,11 @@ class UserLoading extends React.Component {
         apiClient.getMe()
           .then((result) => {
             const user = result.data;
-            console.log(user);
+            if (user.rank == "admin") {
+              this.props.history.push({ pathname: '/News'});
+            } else {
+              this.props.history.push({ pathname: '/CreateStaff'});
+            }
           })
           .catch((e) => {
             console.log(e);
@@ -25,7 +29,7 @@ class UserLoading extends React.Component {
       .catch((e) => {
         this.props.history.push({ pathname: '/' });
       });
-    
+
   }
 
 
@@ -33,8 +37,6 @@ class UserLoading extends React.Component {
   render() {
     return (
       <div>
-        <span>
-        </span>
       </div>
 
     )
