@@ -192,6 +192,12 @@ class APIClient {
     return this._delete(`places/${id}`);
   }
 
+  createMonthly(month, year, place, user, data, type) {
+    const data = {
+      month, year, place, user, data, type,
+    };
+  }
+
   _request(method, path, config) {
     const finalConfig = _.merge(this.config, config);
 
