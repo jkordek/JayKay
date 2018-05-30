@@ -6,8 +6,15 @@ class AddRowMonthly extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      month: '',
+      year: '',
+      data: '',
+      type: 'monthly',
     }
+  }
+
+  componentWillMount() {
+
   }
 
   render() {
@@ -21,6 +28,10 @@ class AddRowMonthly extends Component {
             <div className="inputClass">
               <span>Nazwa usługi:</span>
               <input type="text" />
+            </div>
+            <div className="inputClass">
+              <span>Miesiąc:</span>
+              <input id="date" type="date" />
             </div>
             <div className="inputClass">
               <span>Liczba:</span>

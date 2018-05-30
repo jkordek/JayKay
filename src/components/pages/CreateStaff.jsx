@@ -38,6 +38,7 @@ class CreateStaff extends Component {
             <input type="text" placeholder="Wpisz adres e-mail" />
           </div>
 
+          <a href="/News">Dalej</a>
         </div>
       </div>
     )

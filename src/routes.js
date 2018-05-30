@@ -12,6 +12,11 @@ import NewsForm from './components/common/panels/News/NewsForm';
 import Finances from './components/common/panels/Finances/Finances';
 import AddRowMonthly from './components/common/panels/Finances/plans/AddRowMonthly';
 import Monthly from './components/common/panels/Finances/plans/Monthly';
+import Annualy from './components/common/panels/Finances/plans/Annualy';
+import Plans from './components/common/panels/Finances/plans/Plans';
+import MonthlyLevel from './components/common/panels/Finances/plans/MonthlyLevel';
+import AnnualyLevel from './components/common/panels/Finances/plans/AnnualyLevel';
+import Analize from './components/common/panels/Finances/plans/Analize';
 import Users from './components/common/panels/Users/Users';
 import AddUser from './components/common/panels/Users/AddUser';
 import UserItem from './components/common/panels/Users/UserItem';
@@ -74,6 +79,31 @@ const routes = [
         path: '/Monthly',
         exact: true,
         component: Monthly,
+      },
+      {
+        path: '/Annualy',
+        exact: true,
+        component: Annualy,
+      },
+      {
+        path: '/Plans',
+        exact: true,
+        component: Plans,
+      },
+      {
+        path: '/MonthlyLevel',
+        exact: true,
+        component: MonthlyLevel,
+      },
+      {
+        path: '/AnnualyLevel',
+        exact: true,
+        component: AnnualyLevel,
+      },
+      {
+        path: '/Analize',
+        exact: true,
+        component: Analize,
       },
       {
         path: '/AddService',

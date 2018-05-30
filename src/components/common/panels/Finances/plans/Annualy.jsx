@@ -2,7 +2,7 @@ import React from 'react';
 import SidePanel from '../../../menu/SidePanel';
 import OptionsBar from '../../News/OptionsBar';
 
-const Monthly = () => (
+const Annualy = () => (
   <div className="container">
     <SidePanel />
     <div className="monthlyRaport">
@@ -17,8 +17,9 @@ const Monthly = () => (
               <option value="Poznań">Poznań</option>
               <option value="Komorniki">Komorniki</option>
             </select>
-            <input type="month" />
           </form>
+          <span>w</span>
+          <input type="month" />
         </span>
       </div>
       <div className="monthlyRaportTable">
@@ -72,4 +73,4 @@ const Monthly = () => (
   </div>
 );
 
-export default Monthly;
+export default Annualy;

@@ -32,7 +32,7 @@ class NewsItem extends React.Component {
             </p>
           </div>
           <div className="downBar">
-            <a href="/panels/News/News"><button className="backBtn">Wróć</button></a>
+            <a href="/News"><button className="backBtn">Wróć</button></a>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import SidePanel from '../../../menu/SidePanel';
 import OptionsBar from '../../News/OptionsBar';
 
-const Monthly = () => (
+const Plans = () => (
   <div className="container">
     <SidePanel />
     <div className="monthlyRaport">
@@ -17,53 +17,42 @@ const Monthly = () => (
               <option value="Poznań">Poznań</option>
               <option value="Komorniki">Komorniki</option>
             </select>
-            <input type="month" />
           </form>
+          <span>w</span>
+          <input type="month" />
         </span>
       </div>
       <div className="monthlyRaportTable">
         <div className="monthlyTable">
           <div className="monthlyRow">
-            <div className="monthlyCol"><strong>Usługa</strong></div>
-            <div className="monthlyCol"><strong>Liczba</strong></div>
-            <div className="monthlyCol"><strong>Cena</strong></div>
-            <div className="monthlyCol"><strong>Koszt</strong></div>
-            <div className="monthlyCol"><strong>Przychód</strong></div>
+            <div className="monthlyCol"><strong>Koszty stałe/mies.</strong></div>
+            <div className="monthlyCol"><strong>Planowane</strong></div>
+            <div className="monthlyCol"><strong>Zrealizowane</strong></div>
           </div>
           <div className="monthlyRow">
             <div className="monthlyCol">Cykl</div>
             <div className="monthlyCol">123</div>
             <div className="monthlyCol">23</div>
-            <div className="monthlyCol">100</div>
-            <div className="monthlyCol">53</div>
           </div>
           <div className="monthlyRow">
             <div className="monthlyCol">Urodzinki</div>
             <div className="monthlyCol">123</div>
             <div className="monthlyCol">23</div>
-            <div className="monthlyCol">100</div>
-            <div className="monthlyCol">53</div>
           </div>
           <div className="monthlyRow">
             <div className="monthlyCol">Eventy</div>
             <div className="monthlyCol">123</div>
             <div className="monthlyCol">23</div>
-            <div className="monthlyCol">100</div>
-            <div className="monthlyCol">53</div>
           </div>
           <div className="monthlyRow">
             <div className="monthlyCol">Świetlica</div>
             <div className="monthlyCol">123</div>
             <div className="monthlyCol">23</div>
-            <div className="monthlyCol">100</div>
-            <div className="monthlyCol">53</div>
           </div>
           <div className="monthlyRow">
             <div className="monthlyCol"><strong>Suma</strong></div>
             <div className="monthlyCol"><strong>492</strong></div>
             <div className="monthlyCol"><strong>92</strong></div>
-            <div className="monthlyCol"><strong>400</strong></div>
-            <div className="monthlyCol"><strong>212</strong></div>
           </div>
         </div>
         <a className="addRow" href="/AddService">Dodaj usługę</a>
@@ -72,4 +61,4 @@ const Monthly = () => (
   </div>
 );
 
-export default Monthly;
+export default Plans;
