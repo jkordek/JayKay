@@ -200,8 +200,8 @@ class APIClient {
     type    : required : String (monthly|annual)
   */
 
-  getFinances(place, user) {
-    const params = { place, user };
+  getFinances(place, user, month, year, type) {
+    const params = { place, user, month, year, type };
     return this._get('finances', { params });
   }
 
