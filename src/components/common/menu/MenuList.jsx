@@ -29,7 +29,7 @@ class MenuList extends React.Component {
         <MenuItem doOnClick={this.onClick} label="Dane o placówkach" selected={this.isSelected('Dane o placówkach')} anchor="FacilityData"/>
         <MenuItem doOnClick={this.onClick} label="Dokumenty" selected={this.isSelected('Dokumenty')} anchor="Documents"/>
         <MenuItem doOnClick={this.onClick} label="Forum" selected={this.isSelected('Forum')} anchor="Forum"/>
-        <MenuItem doOnClick={this.onClick} label="Kalendarz" selected={this.isSelected('Kalendarz')} anchor="News"/>
+        <MenuItem doOnClick={this.onClick} label="Kalendarz" selected={this.isSelected('Kalendarz')} anchor="Calendar"/>
         <MenuItem doOnClick={this.onClick} label="Finanse" selected={this.isSelected('Finanse')} anchor="Finances"/>
         <MenuItem doOnClick={this.onClick} label="Raporty" selected={this.isSelected('Raporty')} anchor="News"/>
         <MenuItem doOnClick={this.onClick} label="Użytkownicy"

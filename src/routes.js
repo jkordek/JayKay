@@ -4,6 +4,7 @@ import Auth from './components/pages/Auth';
 import UserLoading from './components/pages/UserLoading';
 import CreateStaff from './components/pages/CreateStaff';
 import News from './components/common/panels/News/News';
+import Calendar from './components/common/panels/Calendar/Calendar';
 import FacilityData from './components/common/panels/FacilityData/FacilityData';
 import AddFacility from './components/common/panels/FacilityData/AddFacility';
 import Documents from './components/common/panels/Documents/Documents';

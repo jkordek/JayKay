@@ -11,7 +11,12 @@ class AddUser extends Component {
       password: '',
       phoneNumber: '',
       rank: 'user',
-      rankStatus: false
+      rankStatus: false,
+      city: '',
+      street: '',
+      buildingNumber: '',
+      postCode: '',
+      name: '',
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,12 +33,26 @@ class AddUser extends Component {
   submit = event => {
     event.preventDefault();
     const { email, password, phoneNumber, rank } = this.state;
-
+    const { street, buildingNumber, postCode, city } = this.state;
     apiClient.createUser(email, password, phoneNumber, undefined, rank)
       .then((result) => {
         console.log('przeszlo');
       })
       .catch((e) => {
+      });
+
+    apiClient.getMe()
+      .then((result) => {
+        const user = result.data;
+        console.log(user);
+      });
+
+    apiClient.createPlace(street, buildingNumber, postCode, city)
+      .then((result) => {
+        console.log('place created');
+      })
+      .catch((e) => {
+        console.log(err);
       });
   }
 
@@ -41,11 +60,6 @@ class AddUser extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSelect(e) {
-    if( this.state.rankStatus == true) {
-      this.setState({ rank: 'admin' });
-    }
-  }
   render() {
 
     return (
@@ -73,29 +87,21 @@ class AddUser extends Component {
             <div className="userPlaces">
               <div>
                 <span>Miasto</span><br/>
-                <input type="text" className="addUserInput"/>
+                <input type="text" name="city" className="addUserInput" value={this.state.city} onChange={this.onChange} />
               </div>
               <div>
                 <span>Ulica</span><br/>
-                <input type="text" className="addUserInput"/>
+                <input type="text" name="street" className="addUserInput" value={this.state.street} onChange={this.onChange} />
               </div>
             </div>
             <div className="addressNumber">
               <div>
                 <span>Nr. budynku</span><br/>
-                <input type="number" className="addUserInput"/>
-              </div>
-              <div>
-                <span>Nr. mieszkania</span><br/>
-                <input type="number" className="addUserInput"/>
+                <input type="number" name="buildingNumber" className="addUserInput" value={this.state.buildingNumber} onChange={this.onChange} />
               </div>
               <div>
                 <span>Kod pocztowy</span><br/>
-                <input type="number" className="addUserInput"/>
-              </div>
-              <div>
-                <span>Administrator</span><br/>
-                <input type="checkbox" checked={this.state.rankStatus} onChange={this.onChange}/>
+                <input type="number" name="postCode" className="addUserInput" value={this.state.postCode} onChange={this.onChange} />
               </div>
             </div>
             <button className="register" onClick={this.submit}>

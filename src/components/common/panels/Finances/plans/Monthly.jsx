@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SidePanel from '../../../menu/SidePanel';
 import OptionsBar from '../../News/OptionsBar';
+import apiClient from '../../../../../helpers/APIClient';
 
 class Monthly extends Component {
 
@@ -17,7 +18,13 @@ class Monthly extends Component {
 
   componentWillMount() {
     apiClient.isUserLoggedIn()
-      .then()
+      .then(() => {
+        apiClient.getMe()
+          .then((result) => {
+            const user = result.data;
+            console.log(user);
+          })
+      })
       .catch((e) => {
         this.props.history.push({ pathname: '/' });
       });
@@ -55,7 +62,6 @@ class Monthly extends Component {
     return (
 
       <div className="container">
-        {dataArr}
         <SidePanel />
         <div className="monthlyRaport">
           <OptionsBar label="Powrót" anchor="../Finances"/>
