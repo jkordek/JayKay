@@ -237,7 +237,7 @@ class APIClient {
   }
 
   _request(method, path, config) {
-    const finalConfig = _.merge(this.config, config);
+    const finalConfig = _.merge({}, this.config, config);
 
     if (finalConfig.params) finalConfig.params = _.compact(finalConfig.params);
     finalConfig.url = path;
