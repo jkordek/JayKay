@@ -9,6 +9,9 @@ class Monthly extends Component {
     super(props);
     this.state = {
       dataArr: [['usluga', '123', '123', '123', '123']],
+      month: '',
+      year: '',
+      user: '',
     }
 
     this.onChange = this.onChange.bind(this);
@@ -39,7 +42,8 @@ class Monthly extends Component {
   }
 
   submit = event => {
-    apiClient.createFinance( month, year, place, user, financeData, type )
+    const { month, year, place, user, dataArr, type } = this.state;
+    apiClient.createFinance( month, year, place, user, dataArr, type )
       .then((response) => {
         console.log('dodane');
       })
@@ -47,6 +51,10 @@ class Monthly extends Component {
         console.log(err);
       })
     event.preventDefault();
+  }
+
+  changeDate = event => {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   onChange(i, j) {
@@ -68,14 +76,14 @@ class Monthly extends Component {
           <div className="monthlyRaportContainer">
             <span>Raport</span>
             <span className="raportOptions">Plan sprzedaży dla:
-              <form>
+              <form onSubmit={this.submit}>
                 <select name="places">
-                  <option value="Wybierz placówkę">Wybierz placówkę</option>
-                  <option value="Lubasz">Lubasz</option>
-                  <option value="Poznań">Poznań</option>
-                  <option value="Komorniki">Komorniki</option>
+                  <option id="1" value="Wybierz placówkę">Wybierz placówkę</option>
+                  <option id="2" value="Lubasz">Lubasz</option>
+                  <option id="3" value="Poznań">Poznań</option>
+                  <option id="4" value="Komorniki">Komorniki</option>
                 </select>
-                <input type="month" />
+                <input type="month" onChange={this.onChange}/>
               </form>
             </span>
           </div>
