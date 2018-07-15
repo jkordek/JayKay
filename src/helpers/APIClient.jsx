@@ -24,7 +24,7 @@ class APIClient {
   }
 
   isUserLoggedIn() {
-    if (!this.config.headers.Authorization) return Promise.reject();
+    if (!cookie.load('u')) return Promise.reject();
     return this.getMe()
       .then(() => true)
       .catch(() => {
@@ -53,9 +53,9 @@ class APIClient {
     rank        : String (user|admin) : required
   */
 
-  createUser(email, password, phoneNumber, place, rank) {
+  createUser(email, password, phoneNumber, place, rank, street, buildingNumber, postCode, city, manager, salesman, administrator) {
     const data = {
-      email, password, phoneNumber, place, rank,
+      email, password, phoneNumber, place, rank, street, buildingNumber, postCode, city, manager, salesman, administrator
     };
     return this._post('users', data);
   }

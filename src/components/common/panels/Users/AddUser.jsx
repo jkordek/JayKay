@@ -34,35 +34,12 @@ class AddUser extends Component {
   submit(event) {
     event.preventDefault();
     const { email, password, phoneNumber, rank, street, buildingNumber, postCode, city } = this.state;
-    const manager = {
-      name: 'test',
-      phoneNumber: '123123123',
-      email: 'test@test.pl'
-    };
-    const salesman = {
-      name: 'test',
-      phoneNumber: '123123123',
-      email: 'test@test.pl'
-    };
-    const administrator = {
-      name: 'test',
-      phoneNumber: '123123123',
-      email: 'test@test.pl'
-    };
-    console.log(street, buildingNumber, postCode, city);
-    apiClient.createUser(email, password, phoneNumber, undefined, rank)
+
+    apiClient.createUser(email, password, phoneNumber, undefined, rank, street, buildingNumber, postCode, city)
       .then((result) => {
         console.log('przeszlo');
       })
       .catch((event) => {
-      });
-
-    apiClient.createPlace('name', street, buildingNumber, postCode, city, manager, salesman, administrator)
-      .then((result) => {
-        console.log('place created');
-      })
-      .catch((event) => {
-        console.log('dupa');
       });
   }
 

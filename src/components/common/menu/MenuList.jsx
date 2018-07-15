@@ -8,6 +8,7 @@ class MenuList extends React.Component {
       selected: ''
     };
     this.onClick = this.onClick.bind(this);
+
   }
 
   onClick(name) {
@@ -34,8 +35,10 @@ class MenuList extends React.Component {
         <MenuItem doOnClick={this.onClick} label="Raporty" selected={this.isSelected('Raporty')} anchor="News"/>
         <MenuItem doOnClick={this.onClick} label="Użytkownicy"
         selected={this.isSelected('Użytkownicy')} anchor="Users"/>
+      <button onClick={this.props.logOut} className="menuItem">Wyloguj</button>
       </div>
     )
+
   }
 }
 

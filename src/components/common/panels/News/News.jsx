@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import SidePanel from '../../menu/SidePanel';
 import OptionsBar from './OptionsBar';
 import apiClient from '../../../../helpers/APIClient';
+import cookie from 'react-cookies';
 
 class News extends React.Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class News extends React.Component {
       optionSelected: '',
       post: '',
     };
+
+    this.logOut = this.logOut.bind(this);
   }
 
   componentWillMount() {
@@ -32,6 +35,14 @@ class News extends React.Component {
       });
   }
 
+  logOut(event) {
+    event.preventDefault();
+    cookie.remove('u');
+    console.log(cookie.load('u'));
+    this.props.history.push({ pathname: '/' });
+    console.log('test2');
+  }
+
   isSelected(name) {
     return this.state.optionSelected === name ? 'selected' : '';
   }
@@ -49,7 +60,7 @@ class News extends React.Component {
 
     return (
       <div className="container">
-        <SidePanel />
+        <SidePanel logOut={this.logOut}/>
         <div className="newsList">
           <OptionsBar label="Dodawanie aktualności" anchor="./CreateNews"/>
           <ul>
